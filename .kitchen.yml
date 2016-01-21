@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+  require_chef_omnibus: true
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+- name: centos-7.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[yum]
+      - recipe[pacemaker::node_prepare]
+      - recipe[pacemaker::cluster_create]
+    attributes:
+      pacemaker:
+        corosync:
+          nodes:
+            mgmt1: 10.0.2.15

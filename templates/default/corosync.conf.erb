@@ -1,0 +1,33 @@
+# This file is enforced by Chef
+# Do NOT modify this file by hand.
+
+totem {
+  version: 2
+  secauth: off
+  cluster_name: icehouse_dev
+  transport: udpu
+  token: 15000
+}
+
+nodelist {
+  node {
+        ring0_addr: ttbosmgmt0001
+        nodeid: 1
+       }
+  node {
+        ring0_addr: ttbosmgmt0002
+        nodeid: 2
+       }
+  node {
+        ring0_addr: ttbosmgmt0003
+        nodeid: 3
+       }
+}
+
+quorum {
+  provider: corosync_votequorum
+}
+
+logging {
+  to_syslog: yes
+}
