@@ -188,7 +188,7 @@ This should be run only from 1 cluster node.
 
 Testing
 -------
-Testing requires ChefDK >= 0.10.0
+Testing utilizes ChefDK >= 0.10.0 with its native gems.
 
 Contributing
 ------------
