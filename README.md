@@ -188,7 +188,11 @@ This should be run only from 1 cluster node.
 
 Testing
 -------
-Testing requires ChefDK >= 0.10.0
+Testing utilizes ChefDK >= 0.10.0 with its native gems.
+
+If you run into issues running tests please be sure you do not have extra gems installed in your ChefDK environment as they could cause conflicts.
+
+To be sure you do not have any extra gems installed you can run `rm -rf ~/.chefdk/gem` to remove any extra gems.
 
 Contributing
 ------------
