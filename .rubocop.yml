@@ -4,7 +4,7 @@ AllCops:
     - 'metadata.rb'
     - 'test/cookbooks/fake/metadata.rb'
     - 'Berksfile'
-    - 'test/fixtures/cookbooks/**/*'
+    - 'test/cookbooks/**/*'
 
 LineLength:
   Max: 200
