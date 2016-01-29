@@ -19,6 +19,8 @@
 
 include ::Clihelper
 
+use_inline_resources
+
 # This resource supports the `--whyrun` flag,
 # Code that changes things is wrapped with `converge_by`
 def whyrun_supported?

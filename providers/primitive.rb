@@ -43,8 +43,7 @@ action :create do
   execute "create pacemaker primitive '#{new_resource.name}'" do
     command "pcs resource create #{new_resource.name} " \
       "#{new_resource.agent} #{format_param_hash(new_resource.params)} " \
-      "#{format_ops_hash(new_resource.op)} #{format_clause_hash('meta', new_resource.meta)} " \
-      "#{addn_cmd}".strip
+      "#{format_ops_hash(new_resource.op)} #{format_clause_hash('meta', new_resource.meta)} #{addn_cmd}".strip
     not_if "pcs resource show #{new_resource.name}"
   end
 end
