@@ -8,3 +8,6 @@ version          '1.0.0'
 
 depends 'hostsfile'
 depends 'chef-vault'
+
+supports 'redhat', '>= 7.1'
+supports 'centos', '>= 7.1'
