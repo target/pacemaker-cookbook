@@ -36,7 +36,7 @@ module Clihelper
   def format_array(array_list)
     array_str = ''
     array_list.each do |value|
-      array_str << "#{value.shellescape} "
+      array_str << "#{value} "
     end
     array_str.strip
   end
@@ -54,7 +54,7 @@ module Clihelper
   def format_param_hash(param_hash)
     param_str = ''
     param_hash.each do |key, value|
-      param_str << "#{key.shellescape}=#{value.shellescape} "
+      param_str << "#{key}=#{value} "
     end
     param_str.strip
   end
