@@ -115,7 +115,7 @@ This resource manages pacemaker-resource group, supporting the following actions
 
 ### Examples
 ``` ruby
-pacemaker_clone 'mygroup' do
+pacemaker_group 'mygroup' do
   resources ['lbservice', 'vip']
   meta {}
   action :create
