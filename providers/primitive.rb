@@ -28,7 +28,7 @@ def whyrun_supported?
 end
 
 action :create do
-  fail "No value specificed to set for pacemaker_primitive[#{new_resource.name}]" if new_resource.agent.nil?
+  raise "No value specificed to set for pacemaker_primitive[#{new_resource.name}]" if new_resource.agent.nil?
 
   addn_cmd = ''
 

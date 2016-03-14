@@ -18,6 +18,7 @@ suites:
       - recipe[yum]
       - recipe[pacemaker::node_prepare]
       - recipe[pacemaker::cluster_create]
+      - recipe[test::pacemaker_primitive]
     attributes:
       pacemaker:
         corosync:

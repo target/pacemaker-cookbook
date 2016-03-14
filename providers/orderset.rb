@@ -28,7 +28,7 @@ def whyrun_supported?
 end
 
 action :create do
-  fail "No 'set' specificed to set for pacemaker_orderset[#{new_resource.name}]" if new_resource.set.nil?
+  raise "No 'set' specificed to set for pacemaker_orderset[#{new_resource.name}]" if new_resource.set.nil?
 
   execute "create pacemaker constraint orderset '#{new_resource.name}'" do
     new_resource.setoptions['id'] = new_resource.name

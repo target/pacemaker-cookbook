@@ -28,7 +28,7 @@ def whyrun_supported?
 end
 
 action :create do
-  fail "No agent specificed to set for pacemaker_stonith[#{new_resource.name}]" if new_resource.agent.nil?
+  raise "No agent specificed to set for pacemaker_stonith[#{new_resource.name}]" if new_resource.agent.nil?
 
   execute "create pacemaker stonith '#{new_resource.name}'" do
     command "pcs stonith create #{new_resource.name} #{new_resource.agent} #{format_param_hash(new_resource.params)} " \
