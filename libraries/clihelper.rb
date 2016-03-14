@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+require 'shellwords'
+
 #
 # CLI Helper methods
 #
