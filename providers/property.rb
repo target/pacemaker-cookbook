@@ -26,7 +26,7 @@ def whyrun_supported?
 end
 
 action :set do
-  fail "No value specificed to set for pacemaker_property[#{new_resource.name}]" if new_resource.value.nil?
+  raise "No value specificed to set for pacemaker_property[#{new_resource.name}]" if new_resource.value.nil?
 
   execute "set pacemaker property '#{new_resource.name}'" do
     command "pcs property set #{new_resource.name}=#{new_resource.value}"
