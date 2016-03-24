@@ -1,6 +1,7 @@
 #==============================
 # PCS command configuration
 #==============================
+default['pacemaker']['no_vault'] = false
 default['pacemaker']['pcs']['vault'] = 'vault_pacemaker'
 default['pacemaker']['pcs']['vault_item'] = 'secrets'
 

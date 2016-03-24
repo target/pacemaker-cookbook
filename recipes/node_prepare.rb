@@ -17,9 +17,12 @@
 # limitations under the License.
 #
 
-include_recipe 'chef-vault::default'
-
-creds = chef_vault_item(node['pacemaker']['pcs']['vault'], node['pacemaker']['pcs']['vault_item'])
+if node['pacemaker']['no_vault']
+  creds = node['pacemaker']['pcs']['vault_item']
+else
+  include_recipe 'chef-vault::default'
+  creds = chef_vault_item(node['pacemaker']['pcs']['vault'], node['pacemaker']['pcs']['vault_item'])
+end
 
 package 'pcs'
 package 'fence-agents-all'
@@ -55,6 +58,11 @@ user 'hacluster' do
 end
 
 # Start service that syncronizes the cluster configs
+service 'pacemaker' do
+  supports restart: true, reload: true
+  action [:enable, :start]
+end
+
 service 'pcsd' do
   supports restart: true, reload: true, status: true
   action [:enable, :start]
