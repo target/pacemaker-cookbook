@@ -33,9 +33,9 @@ action :create do
   addn_cmd = ''
 
   if new_resource.ms
-    addn_cmd = " --master #{new_resource.master_params}"
+    addn_cmd = " --master #{format_param_hash(new_resource.master_params)}"
   elsif new_resource.clone
-    addn_cmd = " --clone #{new_resource.clone_params}"
+    addn_cmd = " --clone #{format_param_hash(new_resource.clone_params)}"
   end
 
   addn_cmd << ' --disabled' if new_resource.disabled
