@@ -28,3 +28,5 @@ attribute :meta,   kind_of: Hash,    default: {}
 attribute :ms,     kind_of: [TrueClass, FalseClass], default: false
 attribute :clone,  kind_of: [TrueClass, FalseClass], default: false
 attribute :disabled, kind_of: [TrueClass, FalseClass], default: false
+attribute :clone_params, kind_of: String
+attribute :master_params, kind_of: String
