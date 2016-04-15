@@ -39,6 +39,8 @@ action :create do
   end
 
   addn_cmd << ' --disabled' if new_resource.disabled
+  
+  addn_cmd << ' --force' if new_resource.force
 
   execute "create pacemaker primitive '#{new_resource.name}'" do
     exists = system "pcs resource show #{new_resource.name} &> /dev/null"

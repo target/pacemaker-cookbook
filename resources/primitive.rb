@@ -30,3 +30,4 @@ attribute :clone,  kind_of: [TrueClass, FalseClass], default: false
 attribute :disabled, kind_of: [TrueClass, FalseClass], default: false
 attribute :clone_params, kind_of: Hash
 attribute :master_params, kind_of: Hash
+attribute :force, kind_of: [TrueClass, FalseClass], default: false
