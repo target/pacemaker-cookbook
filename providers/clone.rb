@@ -29,8 +29,10 @@ end
 
 action :create do
   execute "clone pacemaker resource '#{new_resource.name}'" do
-    command "pcs resource clone #{new_resource.name} #{format_array(new_resource.resources)}"
-    not_if "pcs resource show #{new_resource.name}"
+    command "pcs resource clone #{new_resource.name} " \
+            "#{format_param_hash(new_resource.params)}"
+    only_if "pcs resource show #{new_resource.name}"
+    not_if "pcs resource show #{new_resource.name}-clone"
   end
 end
 

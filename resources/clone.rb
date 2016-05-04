@@ -21,5 +21,5 @@ actions :create, :delete
 default_action :create
 
 attribute :name,       kind_of: String, name_attribute: true
-attribute :resources,  kind_of: Array,  required: true
+attribute :params,     kind_of: Hash,   default: {}
 attribute :meta,       kind_of: Hash,   default: {}
