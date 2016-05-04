@@ -1,6 +1,6 @@
-# Author:: Travis Killoren
+# Author:: Petr Belyaev
 # Cookbook Name:: pacemaker
-# Resource:: primitive
+# Resource:: clone
 #
 # Copyright 2016, Target Corporation
 #
@@ -20,14 +20,6 @@
 actions :create, :delete
 default_action :create
 
-attribute :name,   kind_of: String, name_attribute: true
-attribute :agent,  kind_of: String
-attribute :params, kind_of: Hash,    default: {}
-attribute :op,     kind_of: Hash,    default: {}
-attribute :meta,   kind_of: Hash,    default: {}
-attribute :ms,     kind_of: [TrueClass, FalseClass], default: false
-attribute :clone,  kind_of: [TrueClass, FalseClass], default: false
-attribute :disabled, kind_of: [TrueClass, FalseClass], default: false
-attribute :clone_params, kind_of: Hash
-attribute :master_params, kind_of: Hash
-attribute :force, kind_of: [TrueClass, FalseClass], default: false
+attribute :name,       kind_of: String, name_attribute: true
+attribute :params,     kind_of: Hash,   default: {}
+attribute :meta,       kind_of: Hash,   default: {}

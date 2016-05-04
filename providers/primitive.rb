@@ -33,18 +33,26 @@ action :create do
   addn_cmd = ''
 
   if new_resource.ms
-    addn_cmd = ' --master'
+    addn_cmd = " --master #{format_param_hash(new_resource.master_params)}"
   elsif new_resource.clone
-    addn_cmd = ' --clone'
+    addn_cmd = " --clone #{format_param_hash(new_resource.clone_params)}"
   end
 
   addn_cmd << ' --disabled' if new_resource.disabled
+  
+  addn_cmd << ' --force' if new_resource.force
 
   execute "create pacemaker primitive '#{new_resource.name}'" do
-    command "pcs resource create #{new_resource.name} " \
-      "#{new_resource.agent} #{format_param_hash(new_resource.params)} " \
-      "#{format_ops_hash(new_resource.op)} #{format_clause_hash('meta', new_resource.meta)} #{addn_cmd}".strip
-    not_if "pcs resource show #{new_resource.name}"
+    exists = system "pcs resource show #{new_resource.name} &> /dev/null"
+    if exists
+      command "pcs resource update #{new_resource.name} " \
+        "#{new_resource.agent} #{format_param_hash(new_resource.params)} " \
+        "#{format_ops_hash(new_resource.op)} #{format_clause_hash('meta', new_resource.meta)}".strip
+    else 
+      command "pcs resource create #{new_resource.name} " \
+        "#{new_resource.agent} #{format_param_hash(new_resource.params)} " \
+        "#{format_ops_hash(new_resource.op)} #{format_clause_hash('meta', new_resource.meta)} #{addn_cmd}".strip
+    end
   end
 end
 
