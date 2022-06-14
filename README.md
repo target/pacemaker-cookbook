@@ -2,6 +2,8 @@ pacemaker Cookbook
 ==================
 [![Build Status](https://travis-ci.org/target/pacemaker-cookbook.svg?branch=master)](https://travis-ci.org/target/pacemaker-cookbook)
 
+**Note:** This project is no longer active
+
 Cookbook that sets up a pacemaker cluster.
 
 Requirements
